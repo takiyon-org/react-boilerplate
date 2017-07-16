@@ -1,0 +1,12 @@
+{
+  "extends": "takiyon-react",
+  "settings": {
+    "import/resolver": {
+      "webpack": "webpack"
+    }
+  },
+  "env": {
+    "browser": true,
+    "mocha": true
+  }
+}

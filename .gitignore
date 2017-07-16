@@ -1,0 +1,5 @@
+/node_modules
+/public/assets/css
+/public/assets/js
+/public/index.html
+env.json
