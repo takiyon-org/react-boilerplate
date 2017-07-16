@@ -11,7 +11,6 @@ const sass = require('gulp-sass');
 const scsslint = require('gulp-scss-lint');
 const gulpSequence = require('gulp-sequence');
 const uglify = require('gulp-uglify');
-const yaml = require('js-yaml');
 const revDel = require('rev-del');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');

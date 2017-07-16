@@ -45,7 +45,6 @@
     "gulp-scss-lint": "^0.4.0",
     "gulp-sequence": "^0.4.6",
     "gulp-uglify": "^3.0.0",
-    "js-yaml": "^3.9.0",
     "jsdom": "^11.1.0",
     "mocha": "^3.4.2",
     "react-addons-test-utils": "^15.6.0",
