@@ -1,5 +1,8 @@
 # React Boilerplate
 
+[![Dependency Status](https://img.shields.io/david/takiyon-org/react-boilerplate.svg?style=flat-square)](https://david-dm.org/takiyon-org/react-boilerplate)
+[![devDependency Status](https://david-dm.org/takiyon-org/react-boilerplate/dev-status.svg?style=flat-square)](https://david-dm.org/takiyon-org/react-boilerplate?type=dev)
+
 A sensible, minimal, and server-agnostic boilerplate for React projects.
 
 ## Features
