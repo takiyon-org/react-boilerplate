@@ -53,6 +53,6 @@
     "serverless": "^1.17.0",
     "serverless-offline": "^3.15.0",
     "webpack": "^3.2.0",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "^4.0.0"
   }
 }
