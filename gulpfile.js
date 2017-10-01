@@ -21,6 +21,7 @@ gulp.task('test-script-format', () => (
     gulp.src([
         './app/**/*.js',
         './src/js/**/*.js',
+        './test/**/*.js',
         './*.js',
     ])
         .pipe(eslint())
