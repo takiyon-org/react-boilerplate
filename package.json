@@ -1,6 +1,6 @@
 {
   "name": "react-boilerplate",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A sensible, minimal, and server-agnostic boilerplate for React projects.",
   "main": "gulpfile.js",
   "scripts": {
@@ -9,13 +9,13 @@
     "test-mocha": "env NODE_PATH=./src mocha ./test --compilers js:babel-core/register --recursive --require ./test/setup.js",
     "test": "gulp test"
   },
-  "author": "CTP",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -26,9 +26,10 @@
     "babel-preset-stage-2": "^6.24.1",
     "browser-sync": "^2.18.12",
     "chai": "^4.1.0",
-    "enzyme": "^2.9.1",
-    "eslint": "^4.4.0",
-    "eslint-config-takiyon-react": "^0.1.0",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "eslint": "^4.8.0",
+    "eslint-config-takiyon-react": "^0.2.1",
     "eslint-import-resolver-webpack": "^0.8.3",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.0.1",
@@ -47,8 +48,7 @@
     "gulp-uglify": "^3.0.0",
     "jsdom": "^11.1.0",
     "mocha": "^3.4.2",
-    "react-addons-test-utils": "^15.6.0",
-    "react-test-render": "^1.0.3",
+    "react-test-renderer": "^16.0.0",
     "rev-del": "^1.0.5",
     "serverless": "^1.17.0",
     "serverless-offline": "^3.15.0",
