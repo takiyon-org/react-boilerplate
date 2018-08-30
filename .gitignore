@@ -3,3 +3,5 @@
 /public/assets/js
 /public/index.html
 env.json
+package-lock.json
+yarn.lock
