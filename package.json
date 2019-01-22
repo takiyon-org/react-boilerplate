@@ -45,7 +45,6 @@
     "gulp-run": "^1.7.1",
     "gulp-sass": "^4.0.1",
     "gulp-scss-lint": "^1.0.0",
-    "gulp-sequence": "^1.0.0",
     "gulp-uglify": "^3.0.0",
     "jsdom": "^13.1.0",
     "mocha": "^5.2.0",
