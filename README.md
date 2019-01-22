@@ -1,7 +1,7 @@
 # React Boilerplate
 
 [![Dependency Status](https://img.shields.io/david/takiyon-org/react-boilerplate.svg?style=flat-square)](https://david-dm.org/takiyon-org/react-boilerplate)
-[![devDependency Status](https://david-dm.org/takiyon-org/react-boilerplate/dev-status.svg?style=flat-square)](https://david-dm.org/takiyon-org/react-boilerplate?type=dev)
+[![devDependency Status](https://david-dm.org/takiyon-org/react-boilerplate/dev-status.svg?style=flat-square)](https://david-dm.org/takiyon-org/react-boilerplate?type=dev) [![Greenkeeper badge](https://badges.greenkeeper.io/takiyon-org/react-boilerplate.svg)](https://greenkeeper.io/)
 
 A sensible, minimal, and server-agnostic boilerplate for React projects.
 
