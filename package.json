@@ -48,7 +48,7 @@
     "jsdom": "^13.1.0",
     "mocha": "^5.2.0",
     "react-test-renderer": "^16.0.0",
-    "rev-del": "^1.0.5",
+    "rev-del": "^2.0.0",
     "serverless": "^1.36.3",
     "serverless-offline": "^4.1.4",
     "webpack": "^4.29.0",
