@@ -42,7 +42,7 @@
     "gulp-mocha": "^6.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-rev": "^9.0.0",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^4.0.2",
     "gulp-scss-lint": "^1.0.0",
     "gulp-uglify": "^3.0.0",
     "jsdom": "^13.1.0",
