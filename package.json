@@ -7,7 +7,7 @@
     "build": "gulp release",
     "dev-server": "gulp dev-server",
     "test-mocha": "env NODE_PATH=./src mocha ./test --recursive --require \"@babel/register\" --require ./test/setup.js",
-    "test": "gulp test"
+    "test": "gulp test-script"
   },
   "author": "",
   "license": "ISC",

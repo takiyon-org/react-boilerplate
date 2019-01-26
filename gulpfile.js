@@ -18,6 +18,12 @@ const buildConfig = require('./webpack.config.js');
 
 const browserSync = browserSyncImport.create();
 
+// Mark a build for production
+gulp.task('apply-prod-environment', (callback) => {
+    process.env.NODE_ENV = 'production';
+    callback();
+});
+
 gulp.task('test-script-format', () => (
     gulp.src([
         './app/**/*.js',
@@ -30,24 +36,19 @@ gulp.task('test-script-format', () => (
         .pipe(eslint.failOnError())
 ));
 
-gulp.task('test-mocha', () => (
+gulp.task('test-script-mocha', () => (
     gulp.src('./gulpfile.js')
         .pipe(exec('npm run test-mocha'))
         .pipe(exec.reporter())
 ));
 
-gulp.task('test', gulp.series('test-script-format', 'test-mocha'));
+gulp.task('test-script', gulp.series('test-script-format', 'test-script-mocha'));
 
 gulp.task('script-build', () => {
-    // Fetch NODE_ENV, which is used to potentially optimize React for production
-    buildConfig.plugins.push(new webpack.DefinePlugin({
-        'process.env': {
-            NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        },
-    }));
+    const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
     return gulp.src(['./src/js/entry.js'])
-        .pipe(webpackStream(buildConfig, webpack))
+        .pipe(webpackStream({ ...buildConfig, mode }, webpack))
         .pipe(gulp.dest('./public/assets/js/'));
 });
 
@@ -76,13 +77,6 @@ gulp.task('style-uglify', gulp.series('style-build', () => (
         .pipe(gulp.dest('public/assets/css'))
 )));
 
-// Mark a build for production such that React can make optimizations
-gulp.task('apply-prod-environment', () => {
-    process.env.NODE_ENV = 'production';
-
-    return true;
-});
-
 gulp.task('revise', () => (
     gulp.src('public/assets/**/*.*')
         .pipe(gulp.dest('public/build'))
@@ -108,9 +102,9 @@ gulp.task('html-build', gulp.series('revise', () => {
 }));
 
 gulp.task('build', gulp.series(gulp.parallel('script-build', 'style-build'), 'html-build'));
-gulp.task('build-prod', gulp.series(gulp.parallel('script-uglify', 'style-uglify'), 'html-build'));
-gulp.task('release', gulp.series('test', 'build'));
-gulp.task('release-prod', gulp.series('apply-prod-environment', 'test', 'build-prod'));
+gulp.task('build-prod', gulp.series('apply-prod-environment', gulp.parallel('script-uglify', 'style-uglify'), 'html-build'));
+gulp.task('release', gulp.series('test-script', 'build'));
+gulp.task('release-prod', gulp.series('test-script', 'build-prod'));
 
 gulp.task('script-watch', gulp.series('script-build', 'html-build'));
 gulp.task('style-watch', gulp.series('style-build', 'html-build'));
