@@ -1,20 +1,22 @@
-const browserSync = require('browser-sync').create();
+const autoprefixer = require('gulp-autoprefixer');
+const browserSyncImport = require('browser-sync');
+const cleanCss = require('gulp-clean-css');
+const eslint = require('gulp-eslint');
+const exec = require('gulp-exec');
 const fs = require('fs');
 const gulp = require('gulp');
-const autoprefixer = require('gulp-autoprefixer');
-const cleanCss = require('gulp-clean-css');
-const exec = require('gulp-exec');
-const eslint = require('gulp-eslint');
-const replace = require('gulp-replace');
-const rev = require('gulp-rev');
 const sass = require('gulp-sass');
 const scsslint = require('gulp-scss-lint');
-const uglify = require('gulp-uglify');
+const replace = require('gulp-replace');
+const rev = require('gulp-rev');
 const revDel = require('rev-del');
+const uglify = require('gulp-uglify');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 
 const buildConfig = require('./webpack.config.js');
+
+const browserSync = browserSyncImport.create();
 
 gulp.task('test-script-format', () => (
     gulp.src([
