@@ -1,9 +1,9 @@
 const browserSync = require('browser-sync').create();
-const { exec } = require('child_process');
 const fs = require('fs');
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCss = require('gulp-clean-css');
+const exec = require('gulp-exec');
 const eslint = require('gulp-eslint');
 const replace = require('gulp-replace');
 const rev = require('gulp-rev');
@@ -28,19 +28,11 @@ gulp.task('test-script-format', () => (
         .pipe(eslint.failOnError())
 ));
 
-/* eslint-disable no-console */
-gulp.task('test-mocha', (callback) => {
-    exec('npm run test-mocha', (error, stdout, stderr) => {
-        console.log(stdout);
-
-        if (stderr !== '') {
-            console.error(stderr);
-        }
-
-        callback(error);
-    });
-});
-/* eslint-enable no-console */
+gulp.task('test-mocha', () => (
+    gulp.src('./gulpfile.js')
+        .pipe(exec('npm run test-mocha'))
+        .pipe(exec.reporter())
+));
 
 gulp.task('test', gulp.series('test-script-format', 'test-mocha'));
 
