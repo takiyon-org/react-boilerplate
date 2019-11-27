@@ -65,9 +65,7 @@ gulp.task('style-build', () => (
         .pipe(sass({
             outputStyle: 'expanded',
         }))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-        }))
+        .pipe(autoprefixer())
         .pipe(gulp.dest('./public/assets/css'))
 ));
 
