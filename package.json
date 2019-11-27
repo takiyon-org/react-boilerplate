@@ -40,7 +40,7 @@
     "gulp-clean-css": "^4.0.0",
     "gulp-eslint": "^6.0.0",
     "gulp-exec": "^4.0.0",
-    "gulp-mocha": "^6.0.0",
+    "gulp-mocha": "^7.0.2",
     "gulp-replace": "^1.0.0",
     "gulp-rev": "^9.0.0",
     "gulp-sass": "^4.0.2",
