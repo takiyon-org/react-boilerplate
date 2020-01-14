@@ -46,7 +46,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-scss-lint": "^1.0.0",
     "gulp-uglify": "^3.0.0",
-    "jsdom": "^15.0.0",
+    "jsdom": "^16.0.0",
     "mocha": "^6.0.1",
     "react-test-renderer": "^16.0.0",
     "rev-del": "^2.0.0",
