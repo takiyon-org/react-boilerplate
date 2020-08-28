@@ -51,6 +51,6 @@
     "react-test-renderer": "^16.0.0",
     "rev-del": "^2.0.0",
     "webpack": "^4.29.0",
-    "webpack-stream": "^5.1.1"
+    "webpack-stream": "^6.0.0"
   }
 }
