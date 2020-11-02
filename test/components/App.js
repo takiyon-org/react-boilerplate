@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { describe, it } from 'mocha';
 import { assert } from 'chai';
 
 import App from '../../src/js/components/App';
