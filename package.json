@@ -9,7 +9,7 @@
     "test-mocha": "env NODE_PATH=./src mocha ./test --recursive --require \"@babel/register\" --require ./test/setup.js",
     "test": "gulp test-script"
   },
-  "author": "",
+  "author": "Jake Zatecky",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.10",
