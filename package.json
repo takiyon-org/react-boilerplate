@@ -46,7 +46,7 @@
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
     "jsdom": "^16.0.1",
-    "mocha": "^8.0.1",
+    "mocha": "^9.0.0",
     "react-test-renderer": "^17.0.2",
     "rev-del": "^2.0.0",
     "stylelint": "^13.7.2",
