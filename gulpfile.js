@@ -15,7 +15,7 @@ const uglify = require('gulp-uglify');
 const revDel = require('rev-del');
 const yargs = require('yargs');
 
-const buildConfig = require('./webpack.config.js');
+const buildConfig = require('./webpack.config');
 
 // Can either set stage in environment variable, command line, or default to local
 const { argv } = yargs.default({
