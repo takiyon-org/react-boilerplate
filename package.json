@@ -39,7 +39,7 @@
     "gulp-clean-css": "^4.0.0",
     "gulp-dart-sass": "^1.0.2",
     "gulp-eslint": "^6.0.0",
-    "gulp-mocha": "^7.0.0",
+    "gulp-mocha": "^8.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-rev": "^9.0.0",
     "gulp-stylelint": "^13.0.0",
