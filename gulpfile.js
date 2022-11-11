@@ -1,7 +1,7 @@
 const autoprefixer = require('gulp-autoprefixer');
 const browserSyncImport = require('browser-sync');
 const cleanCss = require('gulp-clean-css');
-const eslint = require('gulp-eslint');
+const eslint = require('gulp-eslint-new');
 const fs = require('fs');
 const gulp = require('gulp');
 const mocha = require('gulp-mocha');
@@ -39,7 +39,7 @@ gulp.task('test-script-format', () => (
     ])
         .pipe(eslint())
         .pipe(eslint.format())
-        .pipe(eslint.failOnError())
+        .pipe(eslint.failAfterError())
 ));
 
 gulp.task('test-script-mocha', () => (

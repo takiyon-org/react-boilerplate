@@ -74,7 +74,7 @@ function request(url, options = {}) {
     return fetchRequest(url, options, overrides);
 }
 
+export default request;
 export {
-    request as default,
     baseOptions,
 };
