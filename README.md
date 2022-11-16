@@ -8,10 +8,10 @@ A sensible, minimal, and server-agnostic boilerplate for React projects.
 
 * Simple build and file watching
 * Cache-busted resources
-* Latest ES6/7 features
+* Latest JavaScript features
 * JavaScript linting with ESLint
-* Support for Sass and auto-prefixed styles
-* Server-agnostic (Express? Python? PHP? no problem)
+* Support for Sass and next-generation CSS
+* Server-agnostic
 * Fully valid and semantic HTML
 
 ## Getting Started
