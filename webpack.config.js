@@ -5,7 +5,7 @@ module.exports = {
         app: './src/js/entry.js',
     },
     output: {
-        filename: '[name].js',
+        path: path.join(__dirname, '/public/assets/js'),
     },
     resolve: {
         modules: [
@@ -22,5 +22,4 @@ module.exports = {
             },
         ],
     },
-    plugins: [],
 };
