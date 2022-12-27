@@ -1,15 +1,9 @@
-const autoprefixer = require('gulp-autoprefixer');
 const browserSyncImport = require('browser-sync');
-const cleanCss = require('gulp-clean-css');
-const eslint = require('gulp-eslint-new');
 const exec = require('gulp-exec');
-const fs = require('fs');
+const fs = require('node:fs');
 const gulp = require('gulp');
-const mocha = require('gulp-mocha');
 const replace = require('gulp-replace');
 const rev = require('gulp-rev');
-const sass = require('gulp-dart-sass');
-const styleLint = require('gulp-stylelint');
 const revDel = require('rev-del');
 const yargs = require('yargs');
 
@@ -33,57 +27,41 @@ gulp.task('apply-prod-environment', (callback) => {
 });
 
 gulp.task('test-script-format', () => (
-    gulp.src([
-        './app/**/*.js',
-        './src/js/**/*.js',
-        './test/**/*.js',
-        './*.js',
-    ])
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError())
+    gulp.src('./gulpfile.js')
+        .pipe(exec('npm run test-script-format'))
+        .pipe(exec.reporter())
 ));
 
 gulp.task('test-script-mocha', () => (
-    gulp.src(['./test/**/*.js'])
-        .pipe(mocha({
-            require: [
-                '@babel/register',
-                './test/setup.js',
-            ],
-        }))
+    gulp.src('./gulpfile.js')
+        .pipe(exec('npm run test-script-mocha'))
+        .pipe(exec.reporter())
 ));
 
 gulp.task('test-script', gulp.series(gulp.parallel('test-script-format', 'test-script-mocha')));
 
 gulp.task('build-script', () => (
     gulp.src('./gulpfile.js')
-        .pipe(exec('webpack'))
+        .pipe(exec('npm run build-script'))
         .pipe(exec.reporter())
 ));
 
 gulp.task('test-style-format', () => (
-    gulp.src('src/scss/**/*.scss')
-        .pipe(styleLint({
-            reporters: [
-                { formatter: 'string', console: true },
-            ],
-        }))
+    gulp.src('./gulpfile.js')
+        .pipe(exec('npm run test-style'))
+        .pipe(exec.reporter())
 ));
 
 gulp.task('build-style', () => (
-    gulp.src('src/scss/**/*.scss')
-        .pipe(sass({
-            outputStyle: 'expanded',
-        }))
-        .pipe(autoprefixer())
-        .pipe(gulp.dest('./public/assets/css'))
+    gulp.src('./gulpfile.js')
+        .pipe(exec('npm run build-style'))
+        .pipe(exec.reporter())
 ));
 
-gulp.task('uglify-style', gulp.series('build-style', () => (
-    gulp.src('public/assets/css/**/*.css')
-        .pipe(cleanCss())
-        .pipe(gulp.dest('public/assets/css'))
+gulp.task('minify-style', gulp.series('build-style', () => (
+    gulp.src('./gulpfile.js')
+        .pipe(exec('npm run minify-style'))
+        .pipe(exec.reporter())
 )));
 
 gulp.task('test', gulp.series(gulp.parallel('test-script', 'test-style-format')));
@@ -98,25 +76,27 @@ gulp.task('revise', () => (
         .pipe(gulp.dest('public/build'))
 ));
 
-// Build HTML file from new revision manifest
+// Build asset references from new revision manifest
 // Allows cache-busting of client assets
 gulp.task('build-html', gulp.series('revise', () => {
     const manifest = JSON.parse(fs.readFileSync('public/build/rev-manifest.json', 'utf8'));
     const env = JSON.parse(fs.readFileSync(`public/env.${argv.stage}.json`, 'utf8'));
     let stream = gulp.src('src/index.html');
 
+    // Insert asset paths
     Object.keys(manifest).forEach((key) => {
         stream = stream.pipe(replace(`{{${key}}}`, manifest[key]));
     });
 
+    // Insert environment variables
     stream = stream.pipe(replace('"{{env}}"', JSON.stringify(env)));
 
-    return stream.pipe(gulp.dest('public'))
-        .pipe(browserSync.stream());
+    // Emit final file
+    return stream.pipe(gulp.dest('public')).pipe(browserSync.stream());
 }));
 
 gulp.task('build', gulp.series('apply-dev-environment', gulp.parallel('build-script', 'build-style'), 'build-html'));
-gulp.task('build-prod', gulp.series('apply-prod-environment', gulp.parallel('build-script', 'uglify-style'), 'build-html'));
+gulp.task('build-prod', gulp.series('apply-prod-environment', gulp.parallel('build-script', 'minify-style'), 'build-html'));
 gulp.task('release', gulp.series('test', 'build'));
 gulp.task('release-prod', gulp.series('test', 'build-prod'));
 
