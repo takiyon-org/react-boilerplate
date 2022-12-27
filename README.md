@@ -23,3 +23,11 @@ npm run dev-server
 ```
 
 Then edit any of the source files to see the changes live.
+
+## Specifying Stage
+
+You can specify the stage (e.g., `local`, `dev`, or `prod`) by passing some additional parameters to `npm run`:
+
+```
+npm run release -- --stage=prod
+```
