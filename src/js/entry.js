@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import App from 'js/components/App';
 import 'scss/app.scss';
@@ -7,4 +7,6 @@ import 'scss/app.scss';
 // Fetch environment from window
 const { APP_NAME } = window.env;
 
-ReactDOM.render(<App name={APP_NAME} />, document.getElementById('mount'));
+// Render application
+const root = createRoot(document.getElementById('mount'));
+root.render(<App name={APP_NAME} />);
