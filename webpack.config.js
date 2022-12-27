@@ -1,11 +1,32 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const fs = require('node:fs');
 const path = require('node:path');
 
-module.exports = {
+function getEnvironmentParameters(stage) {
+    let env = {};
+
+    try {
+        const data = fs.readFileSync(`public/env.${stage}.json`, 'utf8');
+        env = JSON.parse(data);
+    } catch (error) {
+        if (error.code === 'ENOENT') {
+            console.log(`Environment file not found for stage '${stage}'. Skipping.`);
+        } else {
+            throw error;
+        }
+    }
+
+    return `<script>window.env = ${JSON.stringify(env)};</script>`;
+}
+
+module.exports = ({ stage = 'local' }) => ({
+    mode: stage === 'prod' ? 'production' : 'development',
     entry: {
         app: './src/js/entry.js',
     },
     output: {
-        path: path.join(__dirname, '/public/assets/js'),
+        path: path.join(__dirname, '/public'),
+        filename: 'assets/js/[name]-[contenthash].js',
     },
     resolve: {
         modules: [
@@ -20,6 +41,28 @@ module.exports = {
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
             },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
         ],
     },
-};
+    devServer: {
+        open: true,
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            filename: 'index.html',
+            inject: false,
+            minify: false,
+            templateParameters: {
+                env: getEnvironmentParameters(stage),
+            },
+        }),
+    ],
+});

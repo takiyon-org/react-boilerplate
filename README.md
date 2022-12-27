@@ -16,8 +16,10 @@ A sensible, minimal, and server-agnostic boilerplate for React projects.
 
 ## Getting Started
 
-After cloning the boilerplate for the first time, run `cp public/env.local.json public/env.json` to copy a default environment file. Then, start the development server:
+Start the development server:
 
 ```
 npm run dev-server
 ```
+
+Then edit any of the source files to see the changes live.

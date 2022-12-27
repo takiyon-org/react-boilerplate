@@ -5,21 +5,21 @@
     <title>React Boilerplate</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Force browsers to re-download this HTML file in case there are any changes -->
+    <!-- It is better to set this through the web server, if possible -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="build/{{css/app.css}}" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <%= htmlWebpackPlugin.tags.headTags %>
   </head>
   <body>
     <div class="app" id="mount">
-      <span class="fa fa-circle-o-notch fa-spin"></span>
+      <span class="fa fa-circle-notch fa-spin"></span>
     </div>
-    <script>
-        window.env = "{{env}}";
-    </script>
-    <script src="build/{{js/app.js}}"></script>
+    <%= env %>
   </body>
 </html>

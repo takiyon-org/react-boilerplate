@@ -5,11 +5,11 @@
   },
   "settings": {
     "import/resolver": {
-      // "Fixes Node resolution issues in ESLint v6
-      // https://github.com/benmosher/eslint-plugin-import/issues/1396
-      "node": {},
-
-      "webpack": "webpack"
+      "webpack": {
+        "env": {
+          "stage": "local"
+        }
+      }
     }
   }
 }
