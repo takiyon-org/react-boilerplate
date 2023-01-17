@@ -2,7 +2,7 @@
   "name": "react-boilerplate",
   "version": "3.0.0",
   "description": "A sensible, minimal, and server-agnostic boilerplate for React projects.",
-  "main": "gulpfile.js",
+  "main": "webpack.config.js",
   "scripts": {
     "build": "webpack",
     "dev-server": "webpack serve",
@@ -13,7 +13,7 @@
     "test-style": "stylelint src/scss/**/*.scss"
   },
   "author": "Jake Zatecky",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.10",
     "prop-types": "^15.5.10",
