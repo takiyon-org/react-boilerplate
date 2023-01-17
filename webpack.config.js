@@ -28,7 +28,7 @@ module.exports = ({ stage = 'local' }) => ({
     },
     output: {
         path: path.join(__dirname, '/public'),
-        filename: 'assets/js/[name]-[contenthash].js',
+        filename: stage === 'prod' ? 'assets/js/[name]-[contenthash].js' : 'assets/js/[name].js',
         publicPath: '/',
     },
     resolve: {
@@ -57,6 +57,9 @@ module.exports = ({ stage = 'local' }) => ({
     devServer: {
         open: true,
         watchFiles: ['src/**/*'],
+    },
+    performance: {
+        hints: stage === 'prod' ? 'warning' : false,
     },
     plugins: [
         new MiniCssExtractPlugin({
