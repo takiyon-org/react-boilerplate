@@ -24,7 +24,7 @@ function getEnvironmentParameters(stage) {
 module.exports = ({ stage = 'local' }) => ({
     mode: stage === 'prod' ? 'production' : 'development',
     entry: {
-        app: './src/js/entry.js',
+        app: './src/js/entry.jsx',
     },
     output: {
         path: path.join(__dirname, '/public'),
@@ -36,11 +36,12 @@ module.exports = ({ stage = 'local' }) => ({
             path.join(__dirname, '/node_modules'),
             path.join(__dirname, '/src'),
         ],
+        extensions: ['.js', '.jsx'],
     },
     module: {
         rules: [
             {
-                test: /\.js?$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
             },
