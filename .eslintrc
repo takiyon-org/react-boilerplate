@@ -6,9 +6,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "env": {
-          "stage": "local"
-        }
+        "config": "webpack.config.js"
       }
     }
   }
