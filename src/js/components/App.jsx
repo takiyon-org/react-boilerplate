@@ -1,16 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-class App extends React.PureComponent {
-    static propTypes = {
-        name: PropTypes.string.isRequired,
-    };
+const propTypes = {
+    name: PropTypes.string.isRequired,
+};
 
-    render() {
-        const { name } = this.props;
-
-        return <h1>{`Hello, ${name}!`}</h1>;
-    }
+function App({ name }) {
+    return <h1>{`Hello, ${name}!`}</h1>;
 }
+
+App.propTypes = propTypes;
 
 export default App;

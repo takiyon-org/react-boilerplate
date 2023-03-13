@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client';
 import App from 'js/components/App';
 import 'scss/app.scss';
 
-/* global APP_NAME */
-// Render application
+// Render application (global APP_NAME comes from DefinePlugin)
 const root = createRoot(document.getElementById('mount'));
 root.render(<App name={APP_NAME} />);
