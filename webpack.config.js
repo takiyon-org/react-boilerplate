@@ -1,5 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 const path = require('node:path');
 const webpack = require('webpack');
 
@@ -8,12 +7,8 @@ const isProduction = environment === 'production';
 
 module.exports = () => ({
     mode: isProduction ? 'production' : 'development',
-    entry: {
-        app: './src/js/entry.jsx',
-    },
     output: {
         path: path.join(__dirname, '/public'),
-        filename: isProduction ? 'assets/js/[name]-[contenthash].js' : 'assets/js/[name].js',
         publicPath: '/',
     },
     resolve: {
@@ -33,7 +28,6 @@ module.exports = () => ({
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader',
                 ],
@@ -48,17 +42,20 @@ module.exports = () => ({
         hints: isProduction ? 'warning' : false,
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: isProduction ? 'assets/css/[name]-[contenthash].css' : 'assets/css/[name].css',
-        }),
-        new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            filename: 'index.html',
-            inject: false,
-            minify: false,
-        }),
         new webpack.DefinePlugin({
             APP_NAME: JSON.stringify('React Boilerplate'),
+        }),
+        new HtmlBundlerPlugin({
+            extractComments: true,
+            entry: {
+                index: 'src/index.html',
+            },
+            js: {
+                filename: isProduction ? 'assets/js/app-[contenthash].js' : 'assets/js/app.js',
+            },
+            css: {
+                filename: isProduction ? 'assets/css/[name]-[contenthash].css' : 'assets/css/[name].css',
+            },
         }),
     ],
 });
