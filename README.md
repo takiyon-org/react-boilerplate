@@ -23,3 +23,13 @@ npm run dev-server
 ```
 
 Then edit any of the source files to see the changes live.
+
+## Remote Deployment
+
+When deploying to another system, ensure that the HTTP headers forbid caching:
+
+```
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Expires: 0
+```
