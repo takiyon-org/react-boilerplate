@@ -1,5 +1,5 @@
-const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 const path = require('node:path');
+const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 const webpack = require('webpack');
 
 const environment = process.env.NODE_ENV;
