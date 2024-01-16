@@ -46,7 +46,7 @@
     "mocha": "^10.0.0",
     "prettier": "^3.0.2",
     "sass": "^1.57.1",
-    "sass-loader": "^13.2.0",
+    "sass-loader": "^14.0.0",
     "style-loader": "^3.3.1",
     "stylelint": "^16.0.2",
     "stylelint-config-takiyon": "^4.0.0",
