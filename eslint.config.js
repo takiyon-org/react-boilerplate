@@ -1,4 +1,3 @@
-import babelParser from '@babel/eslint-parser';
 import { FlatCompat } from '@eslint/eslintrc';
 import globals from 'globals';
 
@@ -15,8 +14,6 @@ export default [
             '*.{js,jsx}',
         ],
         languageOptions: {
-            parser: babelParser,
-
             // https://github.com/import-js/eslint-plugin-import/issues/2556
             parserOptions: {
                 ecmaVersion: 'latest',
