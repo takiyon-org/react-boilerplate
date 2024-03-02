@@ -11,6 +11,7 @@ const isProduction = environment === 'production';
 
 export default () => ({
     mode: isProduction ? 'production' : 'development',
+    devtool: isProduction ? 'source-map' : 'eval',
     output: {
         path: path.join(__dirname, '/public'),
         publicPath: '/',
