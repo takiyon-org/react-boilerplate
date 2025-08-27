@@ -1,6 +1,6 @@
 # React Boilerplate
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/takiyon-org/react-boilerplate/main.yml?branch=master&style=flat-square)](https://github.com/takiyon-org/react-boilerplate/actions/workflows/main.yml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/takiyon-org/react-boilerplate/main.yml?branch=main&style=flat-square)](https://github.com/takiyon-org/react-boilerplate/actions/workflows/main.yml)
 
 A sensible, minimal, and server-agnostic boilerplate for React projects.
 
