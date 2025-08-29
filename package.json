@@ -31,7 +31,7 @@
     "@babel/register": "^7.0.0",
     "@testing-library/react": "^15.0.0",
     "babel-loader": "^10.0.0",
-    "chai": "^5.0.3",
+    "chai": "^6.0.1",
     "cross-env": "^10.0.0",
     "css-loader": "^7.0.0",
     "eslint": "^9.1.1",
