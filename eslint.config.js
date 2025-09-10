@@ -1,3 +1,4 @@
+import tsParser from '@typescript-eslint/parser';
 import takiyonConfig from 'eslint-config-takiyon-react';
 import globals from 'globals';
 
@@ -7,7 +8,7 @@ export default [
     ...takiyonConfig,
     {
         files: [
-            '**/*.{js,jsx}',
+            '**/*.{js,ts,tsx}',
         ],
         ignores: ['./node_modules/**/*'],
         settings: {
@@ -18,10 +19,19 @@ export default [
                 },
             },
         },
+        rules: {
+            'react/jsx-filename-extension': ['error', {
+                extensions: ['.tsx'],
+            }],
+            'import/extensions': ['error', 'ignorePackages', {
+                ts: 'never',
+                tsx: 'never',
+            }],
+        },
     },
     {
         // Front-end files
-        files: ['src/js/**/*.{js,jsx}'],
+        files: ['src/js/**/*.{js,ts,tsx}'],
         languageOptions: {
             globals: {
                 APP_NAME: 'readonly',
@@ -31,7 +41,7 @@ export default [
     },
     {
         // Test files
-        files: ['test/**/*.{js,jsx}'],
+        files: ['test/**/*.{js,ts,tsx}'],
         languageOptions: {
             globals: {
                 APP_NAME: 'readonly',
@@ -41,11 +51,23 @@ export default [
     },
     {
         // Build files
-        files: ['*.{js,jsx}'],
+        files: ['*.{js,ts,tsx}'],
         languageOptions: {
             globals: {
                 ...globals.node,
             },
+        },
+    },
+    {
+        files: ['**/*.{ts,tsx}'],
+        languageOptions: {
+            parser: tsParser,
+        },
+    },
+    {
+        files: ['**/*.d.ts'],
+        rules: {
+            'no-unused-vars': 'off',
         },
     },
 ];

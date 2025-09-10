@@ -18,14 +18,14 @@ export default () => ({
             path.join(dirname, '/node_modules'),
             path.join(dirname, '/src'),
         ],
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.ts', '.tsx'],
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                exclude: /(node_modules)/,
-                loader: 'babel-loader',
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.s[ac]ss$/i,
