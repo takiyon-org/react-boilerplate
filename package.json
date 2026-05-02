@@ -11,10 +11,10 @@
     "lint": "npm run lint:script && npm run lint:style",
     "lint:script": "eslint src/js/**/*.{js,jsx} test/**/*.{js,jsx} *.{js,jsx}",
     "lint:style": "stylelint src/scss/**/*.scss",
-    "release": "npm run test && npm run build",
     "test": "npm run lint && npm run test:script && npm run test:style-format",
     "test:script": "cross-env NODE_PATH=./src mocha test/**/*.{js,jsx}",
-    "test:style-format": "prettier --check src/scss/**/*.scss"
+    "test:style-format": "prettier --check src/scss/**/*.scss",
+    "test-and-build": "npm run test && npm run build"
   },
   "author": "Jake Zatecky",
   "license": "MIT",
