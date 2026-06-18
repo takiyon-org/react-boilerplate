@@ -1,9 +1,9 @@
-import babel from '@babel/core';
+import { transformAsync } from '@babel/core';
 import { readFile } from 'node:fs/promises';
 
 // Transform the source of .jsx files using Babel
 async function transformWithBabel(source, filename) {
-    const { code } = await babel.transformAsync(source, { filename });
+    const { code } = await transformAsync(source, { filename });
 
     return code;
 }
