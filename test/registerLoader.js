@@ -1,5 +1,6 @@
-import { register } from 'node:module';
-import { pathToFileURL } from 'node:url';
+import { registerHooks } from 'node:module';
+
+import { load } from './jsxLoader.js';
 
 // Register JSX loader so Mocha/Chai and load JSX files with ESM
-register('./test/jsxLoader.js', pathToFileURL('./'));
+registerHooks({ load });

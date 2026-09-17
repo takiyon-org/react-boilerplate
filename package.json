@@ -4,6 +4,9 @@
   "description": "A sensible, minimal, and server-agnostic boilerplate for React projects.",
   "main": "webpack.config.js",
   "type": "module",
+  "engines": {
+    "node": ">=22.15.0"
+  },
   "scripts": {
     "build": "webpack",
     "dev-server": "webpack serve",
