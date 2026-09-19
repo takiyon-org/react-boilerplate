@@ -8,7 +8,7 @@ function transformWithBabel(source, filename) {
     return code;
 }
 
-// eslint-disable-next-line import/prefer-default-export
+// eslint-disable-next-line import-x/prefer-default-export
 export function load(url, context, nextLoad) {
     if (url.endsWith('.jsx')) {
         // Read the original source code from the file

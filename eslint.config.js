@@ -9,7 +9,6 @@ export default [
         files: [
             '**/*.{js,jsx}',
         ],
-        ignores: ['./node_modules/**/*'],
         settings: {
             // Account for webpack.resolve.module imports
             'import/resolver': {
@@ -36,6 +35,7 @@ export default [
             globals: {
                 APP_NAME: 'readonly',
                 ...globals.mocha,
+                ...globals.browser,
             },
         },
     },
